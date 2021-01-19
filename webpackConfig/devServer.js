@@ -29,10 +29,9 @@ module.exports = function () {
       },
       clientLogLevel: 'none', // cancel console client log
       port: '8035', // 设置端口号
-      openPage: 'index.html', // 导航页面
       proxy: {
-        '/kbi': {
-          target: "http://localhost:8093",
+        '/AdvEventS': {
+          target: "http://172.16.13.139:8080",
           secure: false,
           changeOrigin: true,
         },

@@ -5,14 +5,15 @@
  */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = function (isDev) {
+  console.log(isDev,"----------");
     return {
       rules: [
         {
-          test: /\.js?$/,
+          test: /\.ts?$/,
           exclude: /node_modules|assert/, // 排除不处理的目录
           use: [
             {
-              loader: 'babel-loader',
+              loader: isDev ? "ts-loader" : 'babel-loader',
             },
             {
               loader: 'eslint-loader',

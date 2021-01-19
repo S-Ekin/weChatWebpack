@@ -1,9 +1,9 @@
 {
-  "compilerOptions": {
+  "compilerOptions": { 
     "strictNullChecks": true,
     "noImplicitAny": true,
     "module": "CommonJS",
-    "target": "ES5",
+    "target": "ES6",
     "allowJs": false,
     "experimentalDecorators": true,
     "noImplicitThis": true,
