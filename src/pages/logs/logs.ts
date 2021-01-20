@@ -1,3 +1,4 @@
+import "./logs.scss";
 import { formatTime } from "../../utils/util";
 type data = {
   logs: string[]
@@ -9,10 +10,11 @@ Page<data,{
     logs: [],
   },
   onLoad() {
-    const logsArr:string[] = (wx.getStorageSync("logs") as data["logs"] ) || [];
+    const logsArr:number[] = (wx.getStorageSync("logs") as number[] ) || [];
     this.setData({
-      logs: logsArr.map((log: string) => {
-        return formatTime(new Date(log));
+      logs: logsArr.map((log: number) => {
+        const time = Number(log);
+        return formatTime(new Date(time));
       }),
     });
   },

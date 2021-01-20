@@ -5,7 +5,7 @@
   "scripts": {
     "compile": "./node_modules/typescript/bin/tsc",
     "tsc": "node ./node_modules/typescript/lib/tsc.js",
-    "build": "webpack --env=pro --profile",
+    "build": "webpack --env=pro --profile -w",
     "dev": "webpack-dev-server  --disableHostCheck=true --env=dev -w"
   },
   "keywords": [],
@@ -21,7 +21,7 @@
     "@babel/preset-typescript": "^7.12.7",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
     "@typescript-eslint/parser": "^4.13.0",
-    "autoprefixer": "^10.2.1",
+    "autoprefixer": "^9.0.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",

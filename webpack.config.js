@@ -8,32 +8,37 @@ const pageSrc = "./src/pages";
 
 const getMenuDir = function () {
     const menu = {
-      app: `./src/app.ts`,
-      tabBar: "./src/custom-tab-bar/index.ts"
+      app: {
+        import:"./src/app.ts",
+        filename: "app.js"
+      },
+      tabBar:{
+        import: "./src/custom-tab-bar/index.ts",
+        filename: "custom-tab-bar/index.js"
+      } 
      };
     fs.readdirSync(pageSrc).map(val => {
         const src = `${pageSrc}/${val}`;
         if (fs.statSync(src).isDirectory()) {
-            const src = `${pageSrc}/${val}/${val}.ts`;
-            menu[val] =  src;
+            menu[val] =  {
+              import: `${pageSrc}/${val}/${val}.ts`,
+              filename: `pages/${val}/${val}.js`
+            };
         } 
     });
-    return {
-      menu,
-    };
+    return menu;
 };
 module.exports = env => {
   console.log(env)
   const isDev = env.dev === 'dev';
- const allPage = getMenuDir();
-  const { menu } = allPage;
+ const menu = getMenuDir();
   return {
-    devtool: isDev ? 'cheap-source-map' : 'none',
+    devtool: isDev ? 'eval-cheap-source-map' : false,
     entry: menu,
     output: {
       path: path.join(__dirname, './miniprogram'),
+      filename: "[name].js",
      // 要是使用runtimeChunk，这里的文件是runtimeChunk 的运行时分析文件,只能用hash,不能用chunkhash
-     filename: "pages/[name]/[name].js", 
      publicPath: './', 
     },
     mode: isDev ? "development" : "production",

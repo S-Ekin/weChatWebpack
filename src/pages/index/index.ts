@@ -1,3 +1,4 @@
+import "./index.scss";
 const app = getApp<IAppOption>();
 Page({
   data: {

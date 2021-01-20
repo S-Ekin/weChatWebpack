@@ -5,6 +5,10 @@
     ],
     "rules": {
         "at-rule-no-unknown": null,
-        "scss/at-rule-no-unknown": true
-    }
+        "scss/at-rule-no-unknown":true,
+        "unit-no-unknown": [true,{
+            "ignoreUnits": ["rpx"]
+        }]
+    },
+    "ignoreFiles": "**/font.**"
 }

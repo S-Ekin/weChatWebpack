@@ -5,11 +5,16 @@
   "version": "0.2.0",
   "configurations": [
 	 {
-            "type": "chrome",
+            "type": "node",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8035/index.html",
-            "webRoot": "${workspaceFolder}"
+            "name": "node",
+            "skipFiles": [
+            "<node_internals>/**"
+            ],
+            "args": [
+              "--env=pro",
+            ],
+		        "program": "${workspaceFolder}/runWebpack.js"
         }
 ]
 }

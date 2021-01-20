@@ -19,14 +19,21 @@ Component({
     console.log(12);
   },
   methods: {
-    switchTab() {
-     // const data = e.currentTarget.dataset;
-     // const url = data.path;
-      // this.setData({
-      //   selected: data.index,
-      // },function(){
-      //   wx.switchTab({url});
-      // });
+    switchTab(e:{
+      currentTarget:{
+        dataset:{
+            path:string;
+            index:number;
+        }
+      }
+    }) {
+     const data = e.currentTarget.dataset;
+     const url = data.path;
+      this.setData({
+        selected: data.index,
+      },function(){
+        wx.switchTab({url});
+      });
     },
   },
 });

@@ -5,7 +5,6 @@
  */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = function (isDev) {
-  console.log(isDev,"----------");
     return {
       rules: [
         {
