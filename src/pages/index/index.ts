@@ -15,6 +15,14 @@ Page({
   },
   onLoad() {
     if (app.globalData.userInfo) {
+       wx.request({
+        method:"GET",
+        data:{"role_id":29},
+        url:"http://172.16.13.139:8080/AdvEventS/basic/getLeftMenu",
+        success:function(res){
+          console.log(res);
+        },
+      });
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true,
@@ -28,7 +36,22 @@ Page({
           hasUserInfo: true,
         });
       };
+      const header={
+        cookie: wx.getStorageSync("cookie") as string,
+      };
+      console.log(header);
+      
+       wx.request({
+        method:"GET",
+        header,
+        data:{"role_id":29},
+        url:"http://172.16.13.139:8080/AdvEventS/basic/getLeftMenu",
+        success:function(res){
+          console.log(res);
+        },
+      });
     } else {
+      
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
@@ -40,14 +63,7 @@ Page({
         },
       });
     }
-    wx.request({
-      method:"GET",
-      data:{"role_id":29},
-      url:"http://172.16.13.139:8080/AdvEventS/basic/getLeftMenu",
-      success:function(res){
-        console.log(res);
-    },
-    });
+   
   },
   getUserInfo(e: {
     detail:{

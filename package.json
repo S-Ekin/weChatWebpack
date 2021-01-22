@@ -6,7 +6,7 @@
     "compile": "./node_modules/typescript/bin/tsc",
     "tsc": "node ./node_modules/typescript/lib/tsc.js",
     "build": "webpack --env=pro --profile -w",
-    "dev": "webpack-dev-server  --disableHostCheck=true --env=dev -w"
+    "dev": "webpack serve --env=dev -w"
   },
   "keywords": [],
   "author": "",
@@ -57,12 +57,13 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.15.0",
     "webpack-bundle-analyzer": "^4.3.0",
-    "webpack-cli": "^4.3.1",
+    "webpack-cli": "^4.4.0",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "axios": "^0.21.1",
     "@babel/runtime": "^7.6.3",
+    "axios": "^0.21.1",
+    "axios-miniprogram-adapter": "^0.3.2",
     "core-js": "^3.3.6",
     "qs": "^6.7.0",
     "regenerator-runtime": "^0.13.3"

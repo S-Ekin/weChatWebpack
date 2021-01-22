@@ -9,6 +9,21 @@ App<IAppOption>({
     wx.login({
       success: res => {
         console.log(res.code);
+        wx.request({
+          url:"http://172.16.13.139:8080/AdvEventS/login/logVal",
+          data:{
+            "user_name":"质控科",
+            "password":"F59BD65F7EDAFB087A81D4DCA06C4910",
+          },
+          method:"POST",
+          header:{
+            "content-type":"application/json",
+          },
+          success: function(data){
+             data.header["Set-Cookie"] != undefined && wx.setStorageSync("cookie",data.header["Set-Cookie"]);
+            console.log(data);
+          },
+        });
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       },
     });
